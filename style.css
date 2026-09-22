@@ -3,25 +3,86 @@
 
 /* Deep Midnight Blue / Purple Gradient Background */
 body {
-     font-family: 'Plus Jakarta Sans', sans-serif;
-     background: radial-gradient(circle at 75% 15%, #1e1b4b 0%, #0f172a 55%, #020617 100%) !important;
-     color: #f1f5f9;
-     min-height: 100vh;
-     margin: 0;
-     padding: 2.5rem 1rem;
-     display: flex;
-     flex-direction: column;
-     align-items: center;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background: radial-gradient(circle at 75% 15%, #1e1b4b 0%, #0f172a 55%, #020617 100%) !important;
+    color: #f1f5f9;
+    min-height: 100vh;
+    margin: 0;
+    padding: 2.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Header Title Gradient (Electric Indigo to Neon Cyan) */
 h2 {
-     font-size: 2.2rem;
-     font-weight: 800;
-     margin-bottom: 2rem;
-     background: linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #38bdf8 100%);
-     -webkit-background-clip: text;
-     -webkit-text-fill-color: transparent;
-     letter-spacing: -0.5px;
-     text-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, #a855f7 0%, #6366f1 50%, #38bdf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+    text-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
 }
+
+/*  Dark Form */
+form {
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(168, 85, 247, 0.25);
+    border-radius: 20px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 720px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+    margin-bottom: 2rem;
+    box-sizing: border-box;
+}
+
+/* Input Fields */
+input {
+    flex: 1 1 160px;
+    background-color: rgba(2, 6, 23, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #f8fafc;
+    padding: 0.85rem 1.1rem;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.25s ease;
+}
+
+input:focus {
+    border-color: #818cf8;
+    box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.25);
+    background-color: #020617;
+}
+
+input::placeholder {
+    color: #64748b;
+}
+
+/* Add Button */
+#addBtn {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    border: none;
+    color: #ffffff;
+    font-weight: 700;
+    padding: 0.85rem 1.8rem;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 18px rgba(99, 102, 241, 0.4);
+}
+
+#addBtn:hover {
+    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.55);
+}
+
+/* End Form */
