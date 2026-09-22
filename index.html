@@ -20,6 +20,29 @@
         <button type="submit" id="addBtn">Add Order</button>
     </form>
 
+    <!-- Orders Table -->
+    <table>
+        <thead>
+            <tr>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Unit Price</th>
+                <th>Subtotal</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="ordersTable">
+            <!-- Order rows dynamically inserted via JS -->
+        </tbody>
+    </table>
+
+
+    <!-- Grand Total Display Card -->
+    <div class="total-box">
+        Grand Total: $<span id="grandTotal">0.00</span>
+    </div>
+
+
 
     <script src="script.js"></script>
 </body>
