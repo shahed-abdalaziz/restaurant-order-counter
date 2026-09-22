@@ -1,6 +1,6 @@
 
 // 1. Global State & DOM Element Selectors
-let orders = JSON.parse(localStorage.getItem('restaurantsOrders')) || [];
+let orders = JSON.parse(localStorage.getItem('restaurantOrders')) || [];
 
 const itemNameInput = document.getElementById('itemName');
 const quantityInput = document.getElementById('quantity');
@@ -8,7 +8,7 @@ const priceInput = document.getElementById('price');
 const addBtn = document.getElementById('addBtn');
 const ordersTable = document.getElementById('ordersTable');
 const grandTotalSpan = document.getElementById('grandTotal');
-renderOrders();
+
 
 
 // 2. Form Submission Event Listener
@@ -109,3 +109,4 @@ function deleteOrder(index) {
 function saveOrdersToStorage() {
     localStorage.setItem('restaurantOrders', JSON.stringify(orders));
 }
+renderOrders();
