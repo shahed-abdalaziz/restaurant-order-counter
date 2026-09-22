@@ -1,6 +1,6 @@
 
 // 1. Global State & DOM Element Selectors
-let orders = [];
+let orders = JSON.parse(localStorage.getItem('restaurantsOrders')) || [];
 
 const itemNameInput = document.getElementById('itemName');
 const quantityInput = document.getElementById('quantity');
@@ -8,6 +8,7 @@ const priceInput = document.getElementById('price');
 const addBtn = document.getElementById('addBtn');
 const ordersTable = document.getElementById('ordersTable');
 const grandTotalSpan = document.getElementById('grandTotal');
+renderOrders();
 
 
 // 2. Form Submission Event Listener
@@ -34,6 +35,8 @@ addBtn.addEventListener('click', function (e) {
 
     orders.push(newOrder);
 
+    // Save to LocalStorage and update UI
+    saveOrdersToStorage();
     // Re-render UI table & recalculate totals
     renderOrders();
 
@@ -99,5 +102,10 @@ function renderOrders() {
 // 4. Order Deletion State Handler
 function deleteOrder(index) {
     orders.splice(index, 1);
+    saveOrdersToStorage(); // Update LocalStorage after deletion
     renderOrders();
+}
+// Function to save orders array into LocalStorage
+function saveOrdersToStorage() {
+    localStorage.setItem('restaurantOrders', JSON.stringify(orders));
 }
