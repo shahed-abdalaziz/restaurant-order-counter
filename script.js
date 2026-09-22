@@ -42,3 +42,62 @@ addBtn.addEventListener('click', function (e) {
     quantityInput.value = '';
     priceInput.value = '';
 });
+
+
+// 3. UI Rendering & Total Calculation
+
+function renderOrders() {
+    ordersTable.innerHTML = '';
+    let totalSum = 0;
+
+    orders.forEach((order, index) => {
+        const tr = document.createElement('tr');
+
+        // 1. Item Name
+        const td1 = document.createElement('td');
+        td1.innerText = order.name;
+        tr.appendChild(td1);
+
+        // 2. Quantity
+        const td2 = document.createElement('td');
+        td2.innerText = order.quantity;
+        tr.appendChild(td2);
+
+        // 3. Unit Price
+        const td3 = document.createElement('td');
+        td3.innerText = `${order.price.toFixed(2)}`;
+        tr.appendChild(td3);
+
+        // 4. Subtotal Calculation (Quantity x Price)
+        const lineTotal = order.quantity * order.price;
+        totalSum += lineTotal;
+
+        const td4 = document.createElement('td');
+        td4.innerText = `${lineTotal.toFixed(2)}`;
+        tr.appendChild(td4);
+
+        // 5. Delete Action Button
+        const td5 = document.createElement('td');
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'delete-btn';
+        deleteBtn.innerText = 'Delete';
+
+        deleteBtn.addEventListener('click', function () {
+            deleteOrder(index);
+        });
+
+        td5.appendChild(deleteBtn);
+        tr.appendChild(td5);
+
+        ordersTable.appendChild(tr);
+    });
+
+    // Update Grand Total Display
+    grandTotalSpan.innerText = totalSum.toFixed(2);
+}
+
+// 4. Order Deletion State Handler
+function deleteOrder(index) {
+    orders.splice(index, 1);
+    renderOrders();
+}
